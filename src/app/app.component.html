@@ -1,0 +1,120 @@
+<header class="sito-cabecera">
+  <button
+    class="menu-boton secundario"
+    (click)="menu.set(!menu())"
+    aria-label="Abrir o cerrar menú"
+  >
+    ☰
+  </button>
+
+  <div class="marca">
+    SITO
+    <span>Sistema de Información Táctico Operativo</span>
+  </div>
+
+</header>
+
+<aside class="lateral" [class.visible]="menu()">
+  <label class="buscador">
+    <span class="sr">Buscar módulo</span>
+
+    <input
+      placeholder="⌕ Buscar módulo…"
+      [ngModel]="busqueda()"
+      (ngModelChange)="busqueda.set($event)"
+    >
+  </label>
+
+  @for (m of visibles(); track m) {
+    <button
+      class="modulo"
+      [attr.aria-expanded]="abierto() === m"
+      (click)="abierto.set(abierto() === m ? '' : m)"
+    >
+      {{ m }}
+      <span>⌄</span>
+    </button>
+
+    @if (abierto() === m) {
+      <p class="modulo-detalle">
+        Tramites y servicios.
+      </p>
+    }
+  } @empty {
+    <p class="modulo-detalle">
+      No hay módulos con ese nombre.
+    </p>
+  }
+</aside>
+
+<main class="sito-principal">
+  @if (aviso()) {
+    <p class="mensaje" role="status">
+      {{ aviso() }}
+    </p>
+  }
+
+  <h1>
+    <span>▦</span>
+    Avisos y Portales de Interés
+  </h1>
+
+  <p class="aclaracion">
+    Todos tus tramites y servicios en un solo lugar.
+  </p>
+
+  <div class="avisos">
+    @for (a of avisos(); track a.id) {
+      <button
+        class="aviso-tarjeta"
+        [style.--color]="a.color"
+        (click)="detalle.set(a); ventana.showModal()"
+      >
+        <div class="cartel">
+          <span class="mini-utl">
+            UTL · COMUNIDAD UNIVERSITARIA
+          </span>
+
+          <strong>{{ a.titulo }}</strong>
+
+          <span class="linea-cartel"></span>
+
+          <p>{{ a.texto }}</p>
+
+        </div>
+
+        <div class="sombra">
+          <span class="insignia">{{ a.tipo }}</span>
+
+          <h2>{{ a.titulo }}</h2>
+        </div>
+      </button>
+    }
+  </div>
+
+  <footer class="pie">
+    Universidad Tecnológica de León
+  </footer>
+</main>
+
+<dialog #ventana>
+  @if (detalle(); as a) {
+    <span class="etiqueta">
+      {{ a.tipo }}
+    </span>
+
+    <h2>{{ a.titulo }}</h2>
+
+    <p>{{ a.texto }}</p>
+
+    <p>
+      Pronto estará disponible.
+    </p>
+
+    <div class="fila">
+      <button (click)="ventana.close()">
+        Cerrar
+      </button>
+    </div>
+  }
+</dialog>

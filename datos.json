@@ -1,0 +1,53 @@
+{
+  "avisos": [
+    {
+      "id": 1,
+      "titulo": "Convocatoria de cursos de francés",
+      "tipo": "Aviso",
+      "texto": "Consulta las opciones de cursos y practica un nuevo idioma.",
+      "color": "#173492"
+    },
+    {
+      "id": 2,
+      "titulo": "Aviso IMSS",
+      "tipo": "Aviso",
+      "texto": "Consulta el proceso de afiliación estudiantil.",
+      "color": "#4354b9"
+    },
+    {
+      "id": 3,
+      "titulo": "Solicitud de Constancia",
+      "tipo": "Aviso",
+      "texto": "Conoce los pasos generales para solicitar una constancia.",
+      "color": "#239eab"
+    },
+    {
+      "id": 4,
+      "titulo": "Política de Calidad Integral",
+      "tipo": "Aviso",
+      "texto": "Conoce los principios de calidad de la comunidad universitaria.",
+      "color": "#007866"
+    },
+    {
+      "id": 5,
+      "titulo": "Importancia del Correo Institucional",
+      "tipo": "Aviso",
+      "texto": "Revisa tu correo para conocer los avisos escolares.",
+      "color": "#c99729"
+    },
+    {
+      "id": 6,
+      "titulo": "Alta de Internet Campus",
+      "tipo": "Tutorial",
+      "texto": "Consulta la orientación para usar la red del campus.",
+      "color": "#184954"
+    },
+    {
+      "id": 7,
+      "titulo": "Uso del Correo Institucional",
+      "tipo": "Tutorial",
+      "texto": "Organiza tus mensajes y consulta tus comunicaciones escolares.",
+      "color": "#006854"
+    }
+  ]
+}
